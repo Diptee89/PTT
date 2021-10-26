@@ -1,0 +1,422 @@
+package pages;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import config.OR;
+import test.Driver_Class;
+
+public class FTAManagement {
+	WebDriver driver;
+	public static String FTARequestNo;
+
+	@FindBy(xpath = "//*[@id='signin-link']/strong")
+	static WebElement liLogin;
+	@FindBy(xpath = "//*[@id='sUserId']")
+	static WebElement txtLoginId;
+
+	@FindBy(xpath = "//*[@id='sUserPassword']")
+	static WebElement txtPassword;
+	@FindBy(xpath = "//*[@id='signin-dropdown']/form/table/tbody/tr[6]/td/input")
+	static WebElement btnLoginInUcustoms;
+	@FindBy(xpath = "/html/body/div[3]/div[1]/table/tbody/tr[1]/td/table/tbody/tr/td/div/div/table/tbody/tr[1]/td[2]/div[1]/ul/li[5]/a") //// *[@id='header']/table/tbody/tr[1]/td/table/tbody/tr/td/div/div/table/tbody/tr[1]/td[2]/div[1]/ul/li[5]/a
+
+	static WebElement liSignOut;
+	// ---------------------------------------Menu-------
+	@FindBy(xpath = "//*[@id=\"mb_Admin\"]/a")
+	static WebElement menuAdmin;
+	@FindBy(partialLinkText = "FTA / Exemptions")
+	static WebElement subMenuFTA;
+	@FindBy(partialLinkText = "FTA Management")
+	static WebElement nestedSubMenuFTAManagement;
+	// ---------------------------------------New-------
+
+	@FindBy(id = "btnnew")
+	static WebElement btnNew;
+
+	// -------------Create FTA MANAGEMENT Web Elements-----
+	@FindBy(id = "txtAgreementName")
+	static WebElement txtAgreementName;
+
+	@FindBy(xpath = "//*[@id=\"autocompletediv\"]/li[1]/a")
+	static WebElement autocompleteAgreementName; // Agreement Name
+
+	@FindBy(id = "ddlDeMinimisCondition")
+	static WebElement ddlDeMinimisCondition; // De Minimis Condition
+
+	@FindBy(id = "txtMinimisValue")
+	static WebElement txtMinimisValue; // COO/DOO De Minimis Value (USD)
+
+	@FindBy(id = "txtstartdateDatePicker")
+	static WebElement txtstartdateDatePicker; // Start Date
+	@FindBy(xpath = "//*[@id=\"ui-datepicker-div\"]/div[2]/button[1]")
+	static WebElement btnToday;
+
+	@FindBy(id = "chkInDate")
+	static WebElement chkInDate; // End Date Infinite Date
+
+	// COO/DOO DETAILS
+	@FindBy(id = "ddlPCOType")
+	static WebElement ddlPCOType; // Select PCO Type
+
+	@FindBy(id = "txtCOOValidityDays")
+	static WebElement txtCOOValidityDays; // COO validity (in days)
+
+	@FindBy(id = "createbttn")
+	static WebElement createbttn; // Click on Create button
+	@FindBy(id = "text1")
+	static WebElement lblRequestNo; // Click on Create button
+	
+	@FindBy(id = "cancelBttn")
+	static WebElement btnBack; // Click on Back button
+	//*[@id=""]
+	
+	@FindBy(id = "RequestNumber")
+	static WebElement txtRequestNumber; // Click on Create button
+	
+	@FindBy(id = "AgreementName")
+	static WebElement txtAgreementNamesearch; // Click on Create button
+	
+	@FindBy(xpath = "//*[@id=\"Status\"]")
+	static WebElement ddlStatus; // Click on Create button
+	
+	@FindBy(xpath = "//*[@id=\"ID0EABBA\"]/td/table/tbody/tr/td/table/tbody/tr[14]/td/div/input[1]")
+	static WebElement btnMainSearch; // Click on Create button
+	
+	
+	
+	@FindBy(xpath = "//*[@id=\"List_FTAManagementsLs_0_ID0EAABAAA\"]/a/i")
+	static WebElement lnkOpen; // Click on Create button
+	
+	
+	
+
+	public FTAManagement(WebDriver driver) {
+
+		this.driver = driver;
+
+		PageFactory.initElements(driver, this); // This initElements method will create all WebElements
+
+	}
+
+	public static void switchParentFrame(String testData) {
+
+		try {
+			OR.driver.switchTo().parentFrame();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+		}
+	}
+
+	public static void navigateToURL(String testData) {
+
+		try {
+			OR.driver.get(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+		}
+	}
+
+	@FindBy(id = "userNameInput")
+	static WebElement txtUserName;
+	@FindBy(id = "passwordInput")
+	static WebElement txtpasswordInput;
+	@FindBy(id = "submitButton")
+	static WebElement btnsubmitButton;
+
+	public static void setLoginId(String testData) {
+		try {
+			// liLogin.click();
+			// // txtLoginId.clear();
+			// txtLoginId.sendKeys(testData);
+
+			// UAT
+			txtUserName.clear();
+			txtUserName.sendKeys(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+		}
+	}
+
+	public static void setPassword(String testData) {
+		try {
+			Thread.sleep(500);
+			// txtPassword.clear();
+			// txtPassword.sendKeys(testData);
+			txtpasswordInput.clear();
+			txtpasswordInput.sendKeys(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+		}
+	}
+
+	public static void clickLoginBtn(String testData) {
+		try {
+			// btnLoginInUcustoms.click();
+			// UAT
+			btnsubmitButton.click();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void clickSignOut(String testData) {
+		try {
+
+			OR.driver.switchTo().defaultContent();
+			liSignOut.click();
+			// OR.driver.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+		}
+	}
+
+
+
+	// ----------------------------Menu -------------------------
+	public static void clickAdminMenu(String testData) {
+		try {
+			menuAdmin.click();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void clickSubMenuFTA(String testData) {
+		try {
+			subMenuFTA.click();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void clickNestedSubMenuFTAManagement(String testData) {
+		try {
+
+			nestedSubMenuFTAManagement.click();
+			OR.driver.switchTo().defaultContent();
+			OR.driver.switchTo().frame("contentframe");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	
+
+	// ----------------------------FTA Management create -------------------------
+	
+	public static void clickNewFTAManagement(String testData) throws Exception {
+		try {
+			OR.driver.switchTo().defaultContent();
+			OR.driver.switchTo().frame("contentframe");
+
+			JavascriptExecutor jse = (JavascriptExecutor) OR.driver;
+			jse.executeScript("window.scrollBy(0,2500)");
+
+			btnNew.click();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void setAgreementName(String testData) {
+		try {
+			txtAgreementName.sendKeys(testData);
+			autocompleteAgreementName.click();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void selectDeMinimisCondition(String testData) {
+		try {
+			Select DeMinimisCondition = new Select(ddlDeMinimisCondition);
+			DeMinimisCondition.selectByVisibleText(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void setMinimisValue(String testData) {
+		try {
+			txtMinimisValue.sendKeys(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void setstartdateDatePicker(String testData) {
+		try {
+			txtstartdateDatePicker.click();
+			btnToday.click();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void clickchkInDate(String testData) {
+		try {
+			chkInDate.click();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void selectPCOType(String testData) {
+		try {
+			Select PCOType = new Select(ddlPCOType);
+			PCOType.selectByVisibleText(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void setCOOValidityDays(String testData) {
+		try {
+			txtCOOValidityDays.sendKeys(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void clickCreatebttn(String testData) {
+		try {
+			createbttn.click();
+			
+			WebElement requestNo = lblRequestNo;
+			FTARequestNo = requestNo.getText();
+			System.out.println("Request Number from FTA MANAGEMENT: " + requestNo);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+
+	public static void clickBackbttn(String testData) {
+		try {
+			btnBack.click();
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+	
+//	Search	
+	
+	public static void setRequestNo(String testData) {
+		try {
+			txtRequestNumber.sendKeys(FTARequestNo);
+//			txtRequestNumber.sendKeys(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+//	Mcm admin-->Admin-->General-->Types-->Module Types--> TARIFFTYPES-Open->AGREEMENTNAMETYPES >> Open
+
+	public static void setAgreementNamesearch(String testData) {
+		try {
+			txtAgreementNamesearch.sendKeys(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+	public static void selectStatus(String testData) {
+		try {
+			Select status= new Select(ddlStatus);
+			status.selectByVisibleText(testData);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+	public static void clickSearch(String testData) {
+		try {
+			btnMainSearch.click();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+	
+	
+//	Open Created record
+	public static void clickOpen(String testData) {
+		try {
+			lnkOpen.click();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+	
+	// ----------------------------Associate COUNTRIES LIST -------------------------
+	@FindBy(xpath = "//*[@id=\"btnCountryAssociate\"]")
+	static WebElement btnAssociateCountry; // Click on Create button
+	
+	@FindBy(id = "frame_TariffIItemAssLocationsLsPg")
+	static WebElement frame_TariffIItemAssLocationsLsPg; // switch iFrame
+	
+	@FindBy(name = "CountryName")
+	static WebElement txtCountryName; //Country Name
+	
+	@FindBy(name = "CountryCode")
+	static WebElement txtCountryCode; //  Country Code 
+	
+	@FindBy(xpath = "//*[@id=\"ID0EABBA\"]/td/table/tbody/tr/td/table/tbody/tr[6]/td/div/input[1]")
+	static WebElement btnCountrySearch; //  Click on Search button
+	
+	public static void clickAssociateCountry(String testData) {
+		try {
+			btnAssociateCountry.click();
+			
+			OR.driver.switchTo().frame(frame_TariffIItemAssLocationsLsPg);  //COUNTRY LIST Frame
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			Driver_Class.testResult = false;
+
+		}
+	}
+}

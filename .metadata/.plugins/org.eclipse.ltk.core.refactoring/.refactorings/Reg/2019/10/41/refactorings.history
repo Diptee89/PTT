@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;Reg&apos;&#x0D;&#x0A;- Original project: &apos;Reg&apos;&#x0D;&#x0A;- Original element: &apos;Reg/src/main/java/Excel_Report_Generator&apos;" description="Delete element" element1="/src\/main\/java&lt;Excel_Report_Generator" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1570782488016" subPackages="false" version="1.0"/>
+</session>

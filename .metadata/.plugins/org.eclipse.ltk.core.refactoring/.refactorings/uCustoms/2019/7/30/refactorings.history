@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;pages.BL&apos; to &apos;HBL&apos;&#x0D;&#x0A;- Original project: &apos;uCustoms&apos;&#x0D;&#x0A;- Original element: &apos;pages.BL&apos;&#x0D;&#x0A;- Renamed element: &apos;pages.HBL&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;BL&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;pages{BL.java[BL" matchStrategy="1" name="HBL" qualified="false" references="true" similarDeclarations="false" stamp="1563775199844" textual="false" version="1.0"/>
+</session>
